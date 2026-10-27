@@ -14,7 +14,8 @@ const B=[
 ["Rose Garden","Candy pink and magenta roses together.","images/bouquet-7.jpg"],
 ["Golden Butterflies","Rose and blush roses with golden butterflies.","images/bouquet-8.jpg"],
 ["Baby Pink","Soft, tonal pink roses in pastel wrap.","images/bouquet-9.jpg"],
-["Blush & Cream","Dusty rose and cream roses, soft and classic.","images/bouquet-10.jpg"]];
+["Blush & Cream","Dusty rose and cream roses, soft and classic.","images/bouquet-10.jpg"],
+["Heartfull Bliss","Dusty rose and pearl white in a heart bliss.","images/bouquet-11.jpg"]];
 const g=document.getElementById("grid"),sel=document.querySelector("[name=type]");
 sel.innerHTML='<option value="">Custom / not sure yet</option>'+B.map(b=>`<option>${b[0]}</option>`).join("");
 B.forEach((b,i)=>{const c=document.createElement("article");c.className="card";

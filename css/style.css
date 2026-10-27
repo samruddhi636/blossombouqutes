@@ -19,6 +19,17 @@ section{padding:72px 0}
 .btn-ghost:hover{background:var(--blush)}
 .btn-wa{background:#25d366;color:#0b3d1e}
 .btn-wa svg{width:20px;height:20px}
+.btn-instagram {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+  color: #fff;
+  margin-top: 10px;
+  border: none;
+}
+
+.btn-instagram:hover {
+  background: linear-gradient(45deg, #e76f1f, #c9236c, #6f2c96);
+  color: #fff;
+}
 /* nav */
 header{position:sticky;top:0;z-index:50;background:rgba(255,250,246,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--baby)}
 header::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:rgba(255,250,246,.95);z-index:51}
