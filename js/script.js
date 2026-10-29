@@ -1,4 +1,3 @@
-// ▼ Replace with the seller's real WhatsApp number (country code + number, digits only)
 const WA_NUMBER="919322543203";
 const wa=t=>"https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t);
 const HI="Hi! I'd like to enquire about a ribbon bouquet. I'd love to know more about the available designs and customization options.";
@@ -31,9 +30,13 @@ addEventListener("keydown",e=>{if(!lb.classList.contains("on"))return;if(e.key==
 let sx=0;lb.addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});
 lb.addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)open(cur+(d<0?1:-1))});
 
-document.getElementById("f").addEventListener("submit",e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));
-const v=k=>d[k]&&d[k].trim()?d[k].trim():"-";
-window.open(wa(`Hi! I'd like to customize a bouquet.\n\nName: ${v("name")}\nBouquet: ${v("type")}\nNumber of flowers: ${v("count")}\nColours: ${v("colours")}\nSize: ${v("size")}\nAdd-ons: ${v("addons")}\nBudget: ${v("budget")}\nSpecial request: ${v("msg")}\nReference: ${v("ref")}`),"_blank")});
+const fm=document.getElementById("f"),send=document.getElementById("send");
+function enquiry(){const d=Object.fromEntries(new FormData(fm));const v=k=>d[k]&&d[k].trim()?d[k].trim():"-";
+return wa(`Hi! I'd like to customize a bouquet.\n\nName: ${v("name")}\nBouquet: ${v("type")}\nNumber of flowers: ${v("count")}\nColours: ${v("colours")}\nSize: ${v("size")}\nAdd-ons: ${v("addons")}\nBudget: ${v("budget")}\nSpecial request: ${v("msg")}\nReference: ${v("ref")}`)}
+send.href=enquiry();
+fm.addEventListener("input",()=>{send.href=enquiry()});
+send.addEventListener("click",()=>{send.href=enquiry()});
+fm.addEventListener("submit",e=>{e.preventDefault();send.href=enquiry();send.click()});
 
 const bg=document.getElementById("bg"),lk=document.getElementById("lk");
 bg.onclick=()=>{const o=lk.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
@@ -43,3 +46,9 @@ function spy(){const y=innerHeight*.35;let best=nl[0];nl.forEach(a=>{const h=a.g
 addEventListener("scroll",spy,{passive:true});addEventListener("resize",spy);spy();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+
+
+
+
+
+
